@@ -1,16 +1,21 @@
-# This is a sample Python script.
-
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from typing import List
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+class Solution:
+    def maxProfit(prices: List[int], fee: int) -> int:
+        result = []
+        bought = False
 
+        for day_price in range(0,len(prices)):
+            if not bought and (day_price != len(prices)-1):
+                result.append(prices[day_price])
+                bought = True
+            elif bought and (abs(result[-1] - prices[day_price]) - fee) > 0:
+                result.append(prices[day_price])
+                bought = False
+
+        return sum([(result[i + 1] - result[i]) - fee for i in range(0, len(result)-1, 2)])
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    Solution.maxProfit(prices = [1,3,7,5,10,3], fee = 3)
