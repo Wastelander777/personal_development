@@ -1,8 +1,9 @@
 from typing import List
 
-
 class Solution:
-    def maxProfit(prices: List[int], fee: int) -> int:
+
+    # This was my first aproach, but it was not working properly
+    def maxProfitNotWorking(prices: List[int], fee: int) -> int:
         result = []
         bought = False
 
@@ -16,6 +17,15 @@ class Solution:
 
         return sum([(result[i + 1] - result[i]) - fee for i in range(0, len(result)-1, 2)])
 
+    def maxProfit(self, prices: List[int], fee: int) -> int:
+        notHold, hold = 0, -prices[0]
+        for i in range(1, len(prices)):
+            hold = max(hold, notHold - prices[i])
+            notHold = max(notHold, hold + prices[i] - fee)
+        return notHold
+
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    Solution.maxProfit(prices = [1,3,7,5,10,3], fee = 3)
+    print(Solution.maxProfit(None,[1,3,7,5,10,3], 3))
+    print("Thanks for using it! Visit my github: https://github.com/Wastelander777")
