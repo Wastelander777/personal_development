@@ -1,6 +1,7 @@
 from typing import List
 
 class Solution:
+<<<<<<< Updated upstream
 
     # This was my first aproach, but it was not working properly
     def maxProfitNotWorking(prices: List[int], fee: int) -> int:
@@ -29,3 +30,12 @@ class Solution:
 if __name__ == '__main__':
     print(Solution.maxProfit(None,[1,3,7,5,10,3], 3))
     print("Thanks for using it! Visit my github: https://github.com/Wastelander777")
+=======
+    def romanToInt(self, s: str) -> int:
+        
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    print(Solution.romanToInt(None,"MCMXCIV"))
+    print("Thanks for using it! Visit my github: https://github.com/Wastelander777"
+          "\nMade by Pablo Ugarte")
+>>>>>>> Stashed changes
